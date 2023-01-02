@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom/client';
 
 function App() {
   const root = ReactDOM.createRoot(document.getElementById('root'));
-  const localTime = new Date();
-  const mexicoHour = new Date(localTime.getTime()-(3600000*1));
   const elemento = (
     <div className="App">
       <header className="App-header">
@@ -19,7 +17,7 @@ function App() {
           second: "2-digit" // numeric
         })} |</h3>
         <h2>Mexico</h2>
-        <h3>| {mexicoHour.toLocaleTimeString("es-mx",{
+        <h3>| {new Date().toLocaleTimeString("es-mx",{
           timeZone: "America/Mexico_City",
           hour12: true, // false
           hour: "numeric", // 2-digit
