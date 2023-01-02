@@ -4,17 +4,28 @@ import ReactDOM from 'react-dom/client';
 
 function App() {
   const root = ReactDOM.createRoot(document.getElementById('root'));
+  const localTime = new Date();
+  const mexicoHour = new Date(localTime.getTime()-(3600000*1));
   const elemento = (
     <div className="App">
       <header className="App-header">
         <h1>La hora local es: </h1>
-        <h2>| {new Date().toLocaleTimeString("es-US",{
-          timeZone: "Pacific/Easter",
+        <h2>Perú</h2>
+        <h3>| {new Date().toLocaleTimeString("es-PE",{
+          timeZone: "America/Lima",
           hour12: true, // false
           hour: "numeric", // 2-digit
           minute: "2-digit", // numeric
           second: "2-digit" // numeric
-        })} |</h2>
+        })} |</h3>
+        <h2>Mexico</h2>
+        <h3>| {mexicoHour.toLocaleTimeString("es-mx",{
+          timeZone: "America/Mexico_City",
+          hour12: true, // false
+          hour: "numeric", // 2-digit
+          minute: "2-digit", // numeric
+          second: "2-digit" // numeric
+        })} |</h3>
       </header>
     </div>
   );
