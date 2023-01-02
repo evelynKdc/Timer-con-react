@@ -1,25 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import ReactDOM from 'react-dom/client';
 
 function App() {
-  return (
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  const elemento = (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>La hora local es: </h1>
+        <h2>| {new Date().toLocaleTimeString("es-US",{
+          timeZone: "Pacific/Easter",
+          hour12: true, // false
+          hour: "numeric", // 2-digit
+          minute: "2-digit", // numeric
+          second: "2-digit" // numeric
+        })} |</h2>
       </header>
     </div>
   );
+  root.render(elemento);
 }
 
 export default App;
